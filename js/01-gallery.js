@@ -35,11 +35,11 @@ function onOpenModal (event) {
     const currentItem = event.target;
 
     if(currentItem.nodeName !=='IMG') {
-        return;
+        return
     }
 
     const instance = basicLightbox.create(`
-    <img class='gallery__image' data-src=${currentItem.parentNode.href} width="800" height="600">`)
+    <img class='gallery__image' src='${currentItem.parentNode.href}' width="800" height="600"/>`);
 
     instance.show();
     console.log(instance);
