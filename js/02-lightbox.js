@@ -11,7 +11,6 @@ const itemsMarkup = createArrayOfItems(galleryItems);
 // events
 
 refs.galleryListRef.insertAdjacentHTML("afterbegin", itemsMarkup);
-refs.galleryListRef.addEventListener('click', onOpenModal);
 
 // functions
 
@@ -27,18 +26,11 @@ function createArrayOfItems (array) {
     }).join('');
 };
 
-function onOpenModal (event) {
-    event.preventDefault();
-    const currentItem = event.target;
+const lightbox = new SimpleLightbox('.gallery .gallery__link',
+    {
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    captionDelay: 250,
+    }
+);
 
-    // if(currentItem.nodeName !=='IMG') {
-    //     return
-    // }
-
-    const lightbox = new SimpleLightbox('.gallery gallery__link',
-        {capationData: 'alt',
-        captionDelay: 250}
-    );
-
-    console.log(lightbox);
-}
